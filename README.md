@@ -1,11 +1,16 @@
 # 뇌지컬: 100 
 ### _"지상의 최강자여. 밑바닥부터 다시 싸워라."_
+6인이 참여하여 최강의 알고리즘을 겨루는 지상 최대의 대결, 그 기록
+
 <br/>
 
-## ⛳️ 알고리즘 스터디 목표
-1. 일주일에 4문제 알고리즘 풀기
-2. 알고리즘 유형과 시간복잡도를 생각하기
-3. 스터디원의 코드를 보고 코드리뷰하기
+## ⛳️ Rule
+1. 일주일에 네문제 선정하여 공용 깃 레포 ReadMe를 업데이트 합니다.
+2. 문제는 금주의 출제위원 1인이 선정하며, 유형은 비공개이고 추후에 공개됩니다.
+3. 매월 1일, 4만원을 입금해야 참여자격을 얻을 수 있습니다.
+4. 문제당 2500원을 회수할 수 있으며, 잔액은 공금으로 환원됩니다. (실패시 돈 회수는 불가합니다 (대충 1박2일 실패 브금))
+5. 매주 월요일에 시작하며, 차주 월요일 오전 9:00까지 완료해야합니다. (월요일 스크럼에서 확인할 예정입니다)
+
 <br/>
 
 ## 📇 개요
@@ -17,7 +22,7 @@
   
   <tr>
     <td>알고리즘 제출일</td>
-    <td>매주 월요일 09:00 </td>
+    <td>매주 월요일 09:00 이전 </td>
   </tr>
   <tr>
     <td>플랫폼</td>
@@ -25,7 +30,7 @@
   </tr>
   <tr>
     <td>언어</td>
-    <td><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white">
+    <td><img src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=Java&logoColor=white"> <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"> 
   </tr>
 </table>
 
@@ -43,12 +48,12 @@
     <td align="center"><img src="https://avatars.githubusercontent.com/u/61686603?v=4" width="130px;" alt=""></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/miraekwak"><b>miraekwak</b></a></td>
-    <td align="center"><a href="https://github.com/tngur1101"><b>tngur1101</b></a></td>
-    <td align="center"><a href="https://github.com/KHJHK"><b>KHJHK</b></a></td>
-    <td align="center"><a href="https://github.com/godjuhyuk"><b>godjuhyuk</b></a></td>
-    <td align="center"><a href="https://github.com/cheshireHYUN"><b>cheshireHYUN</b></a></td>
-    <td align="center"><a href="https://github.com/Ratatou2"><b>Ratatou2</b></a></td>
+    <td align="center"><a href="https://github.com/miraekwak"><b>@miraekwak</b></a></td>
+    <td align="center"><a href="https://github.com/tngur1101"><b>@tngur1101</b></a></td>
+    <td align="center"><a href="https://github.com/KHJHK"><b>@KHJHK</b></a></td>
+    <td align="center"><a href="https://github.com/godjuhyuk"><b>@godjuhyuk</b></a></td>
+    <td align="center"><a href="https://github.com/cheshireHYUN"><b>@cheshireHYUN</b></a></td>
+    <td align="center"><a href="https://github.com/Ratatou2"><b>@Ratatou2</b></a></td>
   </tr>
   <tr>
     <td align="center"><b>곽미래</b></td>
@@ -74,36 +79,26 @@
 
 |   주차    |      날짜       | 곽미래  | 김수혁 | 김희중 | 이주혁 | 최서현 | 최진학 | 
 |:-------:|:-------------:|:----:|:---:|:----:|:---:|:---:|:---:|
-| week_01 | 04-08 ~ 04-14 |  |  |  |  |  |  |
-| week_02 | 04-15 ~ 04-21 |  |  |  |  |  |  | 
-| week_03 | 04-22 ~ 04-28 |  |  |  |  |  |  | 
-| week_04 | 04-29 ~ 05-05 |  |  |  |  |  |  | 
-| week_05 | 05-06 ~ 05-12 |  |  |  |  |  |  |
-| week_06 | 05-13 ~ 05-19 |  |  |  |  |  |  |
+| week_01 | `04-08 ~ 04-14` |  |  |  |  |  |  |
+| week_02 | `04-15 ~ 04-21` |  |  |  |  |  |  | 
+| week_03 | `04-22 ~ 04-28` |  |  |  |  |  |  | 
+| week_04 | `04-29 ~ 05-05` |  |  |  |  |  |  | 
+| week_05 | `05-06 ~ 05-12` |  |  |  |  |  |  |
+| week_06 | `05-13 ~ 05-19` |  |  |  |  |  |  |
 
 <br/>
 
-## 📌 스터디 규칙
-
-### 운영 방식
-- 주차의 시작은 월요일이다.
-- 주차별로 담당자가 4문제를 출제한다.
-- 문제 제출은 main 브랜치로 PR을 요청한다.
-
-### 제출 마감 시간
-- 월요일 09:00
-<br/>
 
 ## 🗓 일정표
 
 | 주차 | 날짜 |   출제자    |                                                                                                                                                                                        문제                                                                                                                                                                                        | 비고 |
 |:---:|:---:|:----------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---:|
-| week_01 | 04-08 ~ 04-14 | 최서현 |         <p align=left> 0️⃣ [DFS와 BFS](https://www.acmicpc.net/problem/1260) <br> 1️⃣ [숨바꼭질](https://www.acmicpc.net/problem/1697) <br> 2️⃣ [숨바꼭질2](https://www.acmicpc.net/problem/12851) <br> 3️⃣ [숨바꼭질3](https://www.acmicpc.net/problem/13549) <br> 4️⃣ [벽 부수고 이동하기](https://www.acmicpc.net/problem/2206) <br> 5️⃣ [스타트링크](https://www.acmicpc.net/problem/5014) </p>   | <br><br><br><br> |
-| week_02 | 04-15 ~ 04-21 | 이주혁 |     <p align=left> 0️⃣[모든 순열](https://www.acmicpc.net/problem/10974) <br> 1️⃣ [외판원 순회 2](https://www.acmicpc.net/problem/10971) <br> 2️⃣ [1, 2, 3 더하기](https://www.acmicpc.net/problem/9095) <br> 3️⃣ [암호 만들기](https://www.acmicpc.net/problem/1759) <br> 4️⃣ [로봇 청소기](https://www.acmicpc.net/problem/14503) <br> 5️⃣ [N-Queen](https://www.acmicpc.net/problem/9663) </p>     | <br><br><br><br> |
-| week_03 | 04-22 ~ 04-28 | 김수혁 | <p align=left> 0️⃣[설탕 배달](https://www.acmicpc.net/problem/2839) <br> 1️⃣ [가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053) <br> 2️⃣ [평범한 배낭](https://www.acmicpc.net/problem/12865) <br> 3️⃣ [가장 긴 증가하는 부분 수열 4](https://www.acmicpc.net/problem/14002) <br> 4️⃣ [외판원 순회](https://www.acmicpc.net/problem/2098) <br> 5️⃣ [LCS](https://www.acmicpc.net/problem/9251) </p>| <br><br><br><br> |
-| week_04 | 04-29 ~ 05-05 | 김희중 |          <p align=left> 0️⃣[불안정한 수열](https://www.acmicpc.net/problem/28323) <br> 1️⃣ [스케이트 연습](https://www.acmicpc.net/problem/28324) <br> 2️⃣ [호숫가의 개미굴](https://www.acmicpc.net/problem/28325) <br> 3️⃣ [크림빵](https://www.acmicpc.net/problem/28214) <br> 4️⃣ [대피소](https://www.acmicpc.net/problem/28215) <br> 5️⃣ [퇴사](https://www.acmicpc.net/problem/14501) </p>           | <br><br><br><br> |
-| week_05 | 05-06 ~ 05-12 | 곽미래 |          <p align=left> 0️⃣[불안정한 수열](https://www.acmicpc.net/problem/28323) <br> 1️⃣ [스케이트 연습](https://www.acmicpc.net/problem/28324) <br> 2️⃣ [호숫가의 개미굴](https://www.acmicpc.net/problem/28325) <br> 3️⃣ [크림빵](https://www.acmicpc.net/problem/28214) <br> 4️⃣ [대피소](https://www.acmicpc.net/problem/28215) <br> 5️⃣ [퇴사](https://www.acmicpc.net/problem/14501) </p>           | <br><br><br><br> |
-| week_06 | 05-13 ~ 05-19 | 최진학 |          <p align=left> 0️⃣[불안정한 수열](https://www.acmicpc.net/problem/28323) <br> 1️⃣ [스케이트 연습](https://www.acmicpc.net/problem/28324) <br> 2️⃣ [호숫가의 개미굴](https://www.acmicpc.net/problem/28325) <br> 3️⃣ [크림빵](https://www.acmicpc.net/problem/28214) <br> 4️⃣ [대피소](https://www.acmicpc.net/problem/28215) <br> 5️⃣ [퇴사](https://www.acmicpc.net/problem/14501) </p>           | <br><br><br><br> |
+| week_01 | `04-08 ~ 04-14` | 최서현 |         <p align=left> 1️⃣ [등굣길](https://school.programmers.co.kr/learn/courses/30/lessons/42898) <br> 2️⃣ [N으로 표현](https://school.programmers.co.kr/learn/courses/30/lessons/42895) <br> 3️⃣ [여행가자](https://www.acmicpc.net/problem/1976) <br> 4️⃣ [좋다](https://www.acmicpc.net/problem/1253) </p>   | <br><br><br><br> |
+| week_02 | `04-15 ~ 04-21` | 이주혁 |          <p align=left> </p>           | <br><br><br><br> |
+| week_03 | `04-22 ~ 04-28` | 김수혁 |          <p align=left> </p>           | <br><br><br><br> |
+| week_04 | `04-29 ~ 05-05` | 김희중 |          <p align=left> </p>           | <br><br><br><br> |
+| week_05 | `05-06 ~ 05-12` | 곽미래 |          <p align=left> </p>           | <br><br><br><br> |
+| week_06 | `05-13 ~ 05-19` | 최진학 |          <p align=left> </p>           | <br><br><br><br> |
 
 <br/>
 
