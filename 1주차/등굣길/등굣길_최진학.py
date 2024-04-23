@@ -39,39 +39,42 @@ map[i][j] += (map[i - 1][j] + map[i][j - 1]) % 1000000007 로 변경해줌
 - 또한 파이썬은 정수 오버플로우가 발생하지 않는데, 파이썬이 정수를 자동으로 필요한 만큼의 공간을 할당하여 저장하기 때문이다 (지식 +1)- 파이썬의 정수는 일반적으로 고정된 크기를 갖지 않고, 필요에 따라 동적으로 메모리를 할당받아 값을 저장 (지식 +2)
 """
 
-def print_map(map):  
-for _ in map:  
-print(_)  
-print("===================")  
-  
-  
-def solution(m, n, puddles):  
-map = [[0] * (m + 1) for _ in range(n + 1)] # 지도 초기화  
-map[1][1] = 1 # 집 좌표 처리  
-  
-# 지도 물웅덩이 표기  
-for puddle in puddles:  
-y, x = puddle  
-map[x][y] = -1  
-  
-# 배열의 크기가 n+1, m+1이라는 것을 잊어서는 안됨  
-for i in range(1, n + 1):  
-for j in range(1, m + 1):  
-# 현 위치가 물웅덩이면 어차피 못 지나가니까 의미없다  
-# 다만 다음 값들에 영향을 주지 않도록 0으로 리셋해두고 넘어가기!  
-if map[i][j] == -1:  
-map[i][j] = 0  
-continue  
-  
-# 현 위치의 위쪽과 왼쪽에 올 수 있는 경우의 수를 다 더한다  
-# 나 자신의 값을 더하는 것(+=)도 빼먹으면 안된다  
-map[i][j] += (map[i - 1][j] + map[i][j - 1]) % 1000000007  
-  
-return map[n][m]  
-  
-  
-if __name__ == '__main__':  
-# 우선 인풋 값을 m, n, puddles로 나누기  
-# input = input().split(' [')  
-  
-solution(4, 3, [[2, 2]])
+
+def print_map(map):
+    for _ in map:
+        print(_)
+
+print("===================")
+
+def solution(m, n, puddles):
+    map = [[0] * (m + 1) for _ in range(n + 1)]  # 지도 초기화
+
+
+    map[1][1] = 1  # 집 좌표 처리
+
+    # 지도 물웅덩이 표기
+    for puddle in puddles:
+        y, x = puddle
+        map[x][y] = -1
+
+        # 배열의 크기가 n+1, m+1이라는 것을 잊어서는 안됨
+        for i in range(1, n + 1):
+            for j in range(1, m + 1):
+                # 현 위치가 물웅덩이면 어차피 못 지나가니까 의미없다
+                # 다만 다음 값들에 영향을 주지 않도록 0으로 리셋해두고 넘어가기!
+                if map[i][j] == -1:
+                    map[i][j] = 0
+                    continue
+
+    # 현 위치의 위쪽과 왼쪽에 올 수 있는 경우의 수를 다 더한다
+    # 나 자신의 값을 더하는 것(+=)도 빼먹으면 안된다
+    map[i][j] += (map[i - 1][j] + map[i][j - 1]) % 1000000007
+
+    return map[n][m]
+
+
+if __name__ == '__main__':
+    # 우선 인풋 값을 m, n, puddles로 나누기
+    # input = input().split(' [')
+
+    solution(4, 3, [[2, 2]])
