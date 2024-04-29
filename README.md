@@ -81,7 +81,7 @@
 |:-------:|:-------------:|:----:|:---:|:----:|:---:|:---:|:---:|
 | week_01 | `04-08 ~ 04-14` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | week_02 | `04-15 ~ 04-21` | ✅ | ✅ | ✅ | 🔢 | 🔢 | ✅ | 
-| week_03 | `04-22 ~ 04-28` |  |  |  |  |  |  | 
+| week_03 | `04-22 ~ 04-28` | ✅ | ✅ | 🔢 | 🔢 | ✅ | ✅ | 
 | week_04 | `04-29 ~ 05-05` |  |  |  |  |  |  | 
 | week_05 | `05-06 ~ 05-12` |  |  |  |  |  |  |
 | week_06 | `05-13 ~ 05-19` |  |  |  |  |  |  |
@@ -96,7 +96,7 @@
 | week_01 | `04-08 ~ 04-14` | 최서현 |         <p align=left> 1️⃣ [등굣길](https://school.programmers.co.kr/learn/courses/30/lessons/42898) <br> 2️⃣ [N으로 표현](https://school.programmers.co.kr/learn/courses/30/lessons/42895) <br> 3️⃣ [여행가자](https://www.acmicpc.net/problem/1976) <br> 4️⃣ [좋다](https://www.acmicpc.net/problem/1253) </p>   | <br><br><br><br> |
 | week_02 | `04-15 ~ 04-21` | 이주혁 |          <p align=left>          <p align=left> 1️⃣ [전구와 스위치](https://www.acmicpc.net/problem/2138) <br> 2️⃣ [기타레슨](https://www.acmicpc.net/problem/2343) <br> 3️⃣ [컨베이어 벨트 위 로봇](https://www.acmicpc.net/problem/20055) <br> 4️⃣ [여행 경로](https://school.programmers.co.kr/learn/courses/30/lessons/43164) </p>   </p>           | <br><br><br><br> |
 | week_03 | `04-22 ~ 04-28` | 김수혁 |          <p align=left> 1️⃣ [1학년](https://www.acmicpc.net/problem/5557) <br> 2️⃣ [부분합](https://www.acmicpc.net/problem/1806) <br> 3️⃣ [미네랄](https://www.acmicpc.net/problem/2933) <br> 4️⃣ [입국심사](https://school.programmers.co.kr/learn/courses/30/lessons/43238) </p>         | <br><br><br><br> |
-| week_04 | `04-29 ~ 05-05` | 김희중 |          <p align=left> </p>           | <br><br><br><br> |
+| week_04 | `04-29 ~ 05-05` | 김희중 |          <p align=left> 1️⃣ [두 동전](https://www.acmicpc.net/problem/16197) <br> 2️⃣ [합리적인 이동경로](https://www.acmicpc.net/problem/2176) <br> 3️⃣ [새로운 게임2](https://www.acmicpc.net/problem/17837) <br> 4️⃣ [가장 큰 수](https://school.programmers.co.kr/learn/courses/30/lessons/42746) </p>         | <br><br><br><br> |
 | week_05 | `05-06 ~ 05-12` | 곽미래 |          <p align=left> </p>           | <br><br><br><br> |
 | week_06 | `05-13 ~ 05-19` | 최진학 |          <p align=left> </p>           | <br><br><br><br> |
 
