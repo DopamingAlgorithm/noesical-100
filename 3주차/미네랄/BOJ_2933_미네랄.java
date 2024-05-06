@@ -1,133 +1,188 @@
-package baekjoon;
-
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 /**
- * 1. 좌, 우 번갈아가며 막대기 던지기
- * 2. 막대기 닿으면 해당 칸 삭제
- * 3. dfs or bfs로 구역 나누기
- * 4. 바닥 혹은 다른 미네랄에 닿아있지 않은 구역은 떨어트리기
+ * 동굴은 R행 C열
+ * 각 칸은 비어있거나 미네랄 포함, 네 방향 중 하나로 인접한 미네랄이 포함된 두 칸은 같은 클러스터
+ *
+ * 창영은 동굴 왼쪽, 상근은 오른쪽
+ * 턴 번갈아가며 막대 던짐
+ *
+ * 막대를 던지기 전 던질 높이 정함
+ * 막대는 땅과 수평
+ * 막대가 날아가다 미네랄 만나면 미네랄 파괴 막대는 멈춤
+ *
+ * 클러스터가 분리될 수 있음
+ * 새롭게 생성된 클러스터가 떠 있으면 중력에 의해 바닥으로 떨어짐
+ * 클러스터 모양은 변경 x
+ * 합쳐질 수 있음 밑에 클러스터가 있으면
+ *
+ * 1. 높이가 주어지면 해당 높이와 일치하는 위치의 미네랄을 파괴한다
+ * 2. 미네랄이 파괴된 시점에서 클러스터 중 공중에 있는 애를 찾는다.
+ * 3. 만약 있다면 위에서 아래로 쭉 내린다.
+ * 4. 음 만약 내리는데 클러스터가 있다면 합친다.
+ *
+ * 모든 높이는 1과 R사이
+ * 높이 1은 행렬의 가장 바닥, 높이 R은 가장 위
+ * 첫번째 막대는 왼 -> 오로 던짐
+ * 두번째는 오 -> 왼
+ * 이렇게 번갈아가면서
+ *
  */
-public class BOJ_2933_미네랄 {
-    static class Cluster{
-        int x;
-        int y;
 
-        Cluster(int x, int y){
-            this.x = x;
-            this.y = y;
+public class Main {
+    static class Node{
+        int r;
+        int c;
+        public Node(int r, int c){
+            this.r = r;
+            this.c = c;
         }
     }
-    static int R, C, floatClusterCnt;
-    static char[][] map;
-    static boolean[][] visited;
-    static int[] dr = {-1, 0, 1, 0};
-    static int[] dc = {0, 1, 0, -1};
-    static Cluster[] floatClusters = new Cluster[5000]; //클러스터 많아야 최대 5천개
 
-    public static void main(String[] args) throws IOException {
+    static char[][] cave;
+    static int R, C;
+    static boolean[][] visited;
+    static int[] dx = {1, -1, 0, 0};
+    static int[] dy = {0, 0, 1, -1};
+    static Queue<Node> cluster = new LinkedList<>();
+
+    public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st;
+
+        st = new StringTokenizer(br.readLine());
         R = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
-        map = new char[R][C];
-        for (int i = R - 1; i >= 0; i--) map[i] = br.readLine().toCharArray();
+
+        cave = new char[R][C];
+
+        for(int i=0; i<R; i++){
+            cave[i] = br.readLine().toCharArray();
+        }
 
         int N = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
 
-        for (int i = 0; i < N; i++) {
-            int row = Integer.parseInt(st.nextToken());
-            throwStick(row, i % 2);
+        for(int i = 0; i < N; i++){
+            int temp = Integer.parseInt(st.nextToken());
+            int height = R - temp;
+
+            notenoughminerals(height, i);
             visited = new boolean[R][C];
-            chackFloatCluster();
-        }
-    }
 
-    static void throwStick(int row, int player){
-        //왼쪽 차래
-        if(player == 0){
-            for (int i = 0; i < C; i++) {
-                if(map[row][i] != '.'){
-                    map[row][i] = '.';
-                    return;
+            for(int j=0; j<C; j++){
+                if(cave[R-1][j]=='x' && !visited[R-1][j]){
+                    bfs(R-1, j);
                 }
             }
-        }else{ // 오른쪽 차례
-            for (int i = C - 1; i >= 0; i--) {
-                if(map[row][i] != '.'){
-                    map[row][i] = '.';
-                    return;
-                }
-            }
-        }
-    }
 
-    static void chackFloatCluster(){
-        for (int j = 0; j < C; j++) {
-            if(map[0][j] != '.' && !visited[0][j]) findNotFloatClusterDfs(0, j);
-        }
-
-        floatClusterCnt = 0;
-
-        for (int i = 1; i < R; i++) {
-            for (int j = 0; j < C; j++) {
-                if(map[0][j] != '.' && !visited[0][j]){
-                    findFloatClusterDfs(i, j, floatClusterCnt);
+            boolean downFlag = false;
+            for(int m = 0; m<R; m++){
+                if(downFlag)break;
+                for(int n = 0; n<C; n++){
+                    if(cave[m][n]=='x' && !visited[m][n]){
+                        bfs(m,n);
+                        downClusters();
+                        downFlag=true;
+                        break;
+                    }
                 }
             }
         }
+        printMap();
     }
 
-    static void findNotFloatClusterDfs(int row, int col){
-        visited[row][col] = true;
-
-        for (int d = 0; d < 4; d++) {
-            int nextRow = row + dr[d];
-            int nextCol = col + dc[d];
-
-            if(OOB(nextRow, nextCol)) continue;
-
-            if(map[nextRow][nextCol] != '.' && !visited[nextRow][nextCol]){
-                findNotFloatClusterDfs(nextRow, nextCol);
-            }
-        }
-    }
-
-    static void findFloatClusterDfs(int row, int col, int floatClusterCnt){
-        visited[row][col] = true;
-
-        for (int d = 0; d < 4; d++) {
-            int nextRow = row + dr[d];
-            int nextCol = col + dc[d];
-
-            if(OOB(nextRow, nextCol)) continue;
-
-            if(map[nextRow][nextCol] != '.' && !visited[nextRow][nextCol]){
-                if(floatClusters[floatClusterCnt] == null) floatClusters[floatClusterCnt] = new Cluster(nextRow, nextCol);
-                else{
-                    floatClusters[floatClusterCnt].x = nextRow;
-                    floatClusters[floatClusterCnt].y = nextCol;
+    private static void notenoughminerals(int height, int idx){
+        int dir = getDirection(idx);
+        if(dir == 0){
+            for(int i = 0; i < C; i++){
+                if(cave[height][i]=='x'){
+                    cave[height][i]='.';
+                    break;
                 }
-                findFloatClusterDfs(nextRow, nextCol, ++floatClusterCnt);
             }
-        }
-    }
-
-    static void downFloatCluster(){
-        for (int i = 0; i < R; i++) {
-            for (int j = 0; j < C; j++) {
-                if(map[0][j] != '.' && !visited[0][j]){
-                    findNotFloatClusterDfs(0, j);
+        } else {
+            for(int i = C-1; i >= 0; i--){
+                if(cave[height][i]=='x'){
+                    cave[height][i]='.';
+                    break;
                 }
             }
         }
     }
 
-    static boolean OOB(int row, int col){
-        return row < 0 || row >= R || col < 0 || col > C;
+    private static int getDirection(int idx){
+        if(idx%2 == 0){
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    private static void bfs(int r, int c){
+        Queue<Node>q = new LinkedList<>();
+        cluster.clear();
+        cluster.add(new Node(r,c));
+        q.offer(new Node(r,c));
+        visited[r][c] = true;
+        while(!q.isEmpty()){
+            Node temp = q.poll();
+            for(int d = 0; d < 4; d++){
+                int nr = temp.r + dx[d];
+                int nc = temp.c + dy[d];
+                if(nr>=0 && nc>=0 && nr<R && nc<C && !visited[nr][nc] && cave[nr][nc]=='x'){
+                    visited[nr][nc] = true;
+                    cluster.add(new Node(nr,nc));
+                    q.offer(new Node(nr,nc));
+                }
+            }
+        }
+    }
+
+    private static void downClusters(){
+        ArrayList<Node> list = new ArrayList<>();
+        int i = 0;
+        int minus = 0;
+        while(!cluster.isEmpty()){
+            list.add(cluster.poll());
+        }
+        int size = list.size();
+        changeCave(0, size, list, '.');
+        while (true){
+            if(checkCanDown(minus+1, size, list))minus++;
+            else break;
+        }
+        changeCave(minus, size, list, 'x');
+    }
+
+    private static boolean checkCanDown(int minus, int size, ArrayList<Node> list){
+        for(int i = 0; i < size; i++){
+            int nr = list.get(i).r+minus;
+            int nc = list.get(i).c;
+            if(nr>=R||cave[nr][nc]=='x') return false;
+        }
+        return true;
+    }
+
+    private static void changeCave(int minus, int size, ArrayList<Node> list, char c){
+        for(int i = 0; i < size; i++){
+            int nr = list.get(i).r+minus;
+            int nc = list.get(i).c;
+            cave[nr][nc]=c;
+        }
+    }
+
+    private static void printMap(){
+        for(int i = 0; i < R; i++){
+            for(int j = 0; j < C; j++){
+                System.out.print(cave[i][j]);
+            }
+            System.out.println();
+        }
     }
 }
